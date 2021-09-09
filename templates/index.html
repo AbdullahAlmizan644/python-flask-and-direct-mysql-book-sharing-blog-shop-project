@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="col-6" style="margin: 50px 400px;">
+  <h1>Write your story</h1>
+  <form action="/add_story" method="POST">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Story Name</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Story</label>
+        <div class="form-floating">
+          <textarea class="form-control" id="tx" name="story" style="height: 200px"></textarea>
+          <label for="floatingTextarea2">Story</label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Post Story</button>
+  </form>
+
+</div>
+<div class="col-6" style="margin: 50px 400px;">
+  <br>
+  {% for story in stories%}
+  <div class="p-3 mb-2 bg-info text-light">
+    <h1 style="color:lightcyan;">{{story.1}}</h1> 
+    <a href="/update/{{story.0}}"><button class="btn btn-warning" type="button">Edit Story</button></a>
+    <a href="/delete/{{story.0}}"><button class="btn btn-danger" type="button">Delete Story</button></a>
+  </div>
+  <div class="p-3 mb-2 bg-warning text-dark">{{story.2}}</div>
+  {% endfor %}
+</div>
+
+{% endblock %}

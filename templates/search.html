@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% for i in s_result %}
+<div class="col-6" style="margin: 50px 220px;">
+  <br>
+  <div class="p-3 mb-2 bg-success text-light">
+    <h1 style="color:lightcyan;">{{i.1}}</h1> 
+  </div>
+  <div class="p-3 mb-2 bg-warning text-dark">{{i.2}}</div>
+</div>
+{% endfor %}
+
+{% endblock %}
